@@ -12,7 +12,7 @@ export default function Page() {
     }, []);
 
     return (
-        <div className="flex flex-col bg-background min-h-screen">
+        <div className="flex flex-col min-h-screen">
             {mounted && (
                 <>
                     <div className="flex flex-col items-center justify-center min-h-screen">

@@ -122,10 +122,9 @@
   }
   html {
     color-scheme: dark;
-    background: transparent;
+    @apply bg-background;
   }
   body {
     @apply text-foreground;
-    background: transparent;
   }
 }
