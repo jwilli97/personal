@@ -1,3 +1,5 @@
+"use client";
+
 import { Showcase } from "@/components/showcase";
 import { IconBrandGithub, IconBrandLinkedin, IconBrandTwitter, IconMail } from "@tabler/icons-react";
 
