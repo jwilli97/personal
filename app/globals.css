@@ -125,6 +125,6 @@
     @apply bg-background;
   }
   body {
-    @apply text-foreground;
+    @apply bg-background text-foreground;
   }
 }
