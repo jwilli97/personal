@@ -31,16 +31,59 @@ const levelColors = [
   "bg-chart-4",
 ];
 
-function ContributionCell({ count }: { count: number }) {
+function ContributionCell({
+  date,
+  count,
+  weekIndex,
+  totalWeeks,
+}: {
+  date: string;
+  count: number;
+  weekIndex: number;
+  totalWeeks: number;
+}) {
+  const [showTooltip, setShowTooltip] = React.useState(false);
   const level = getContributionLevel(count);
+
+  const formattedDate = new Date(date + "T00:00:00").toLocaleDateString("en-US", {
+    weekday: "short",
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+
+  // Position tooltip based on where we are in the grid
+  const isLeftEdge = weekIndex < 5;
+  const isRightEdge = weekIndex > totalWeeks - 5;
+
+  let tooltipPosition = "left-1/2 -translate-x-1/2";
+  if (isLeftEdge) {
+    tooltipPosition = "left-0";
+  } else if (isRightEdge) {
+    tooltipPosition = "right-0";
+  }
 
   return (
     <div
-      className={cn(
-        "size-[10px] sm:size-[11px] rounded-[2px]",
-        levelColors[level]
+      className="relative"
+      onMouseEnter={() => setShowTooltip(true)}
+      onMouseLeave={() => setShowTooltip(false)}
+    >
+      <div
+        className={cn(
+          "size-[10px] sm:size-[11px] rounded-[2px]",
+          levelColors[level]
+        )}
+      />
+      {showTooltip && (
+        <div className={cn("absolute bottom-full mb-2 z-50 pointer-events-none", tooltipPosition)}>
+          <div className="bg-popover text-popover-foreground text-xs px-2 py-1 rounded shadow-lg whitespace-nowrap border">
+            <span className="font-medium">{count} contribution{count !== 1 ? "s" : ""}</span>
+            <span className="text-muted-foreground"> on {formattedDate}</span>
+          </div>
+        </div>
       )}
-    />
+    </div>
   );
 }
 
@@ -97,12 +140,18 @@ export function ContributionGridMinimal() {
   const weeks = buildContributionWeeks(data.contributions);
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center py-8">
       <div className="flex gap-[3px]">
         {weeks.map((week, weekIndex) => (
           <div key={weekIndex} className="flex flex-col gap-[3px]">
             {week.map((day) => (
-              <ContributionCell key={day.date} count={day.count} />
+              <ContributionCell
+                key={day.date}
+                date={day.date}
+                count={day.count}
+                weekIndex={weekIndex}
+                totalWeeks={weeks.length}
+              />
             ))}
           </div>
         ))}
