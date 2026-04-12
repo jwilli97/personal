@@ -75,7 +75,7 @@ function ContributionCell({
           levelColors[level]
         )}
       />
-      {showTooltip && (
+      {showTooltip && count > 0 && (
         <div className={cn("absolute bottom-full mb-2 z-50 pointer-events-none", tooltipPosition)}>
           <div className="bg-popover text-popover-foreground text-xs px-2 py-1 rounded shadow-lg whitespace-nowrap border">
             <span className="font-medium">{count} contribution{count !== 1 ? "s" : ""}</span>

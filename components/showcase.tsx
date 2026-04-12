@@ -69,7 +69,7 @@ const musicProjects = [
     },
 ];
 
-const makerProjects = [
+const fabProjects = [
     {
         name: "Example Project",
         description: "Fusion 360 design / 3D print",
@@ -92,7 +92,7 @@ export function Showcase() {
         <ExampleWrapper>
             <DevCard />
             <MusicCard />
-            <MakerCard />
+            <FabCard />
         </ExampleWrapper>
     );
 }
@@ -177,9 +177,9 @@ function MusicCard() {
     );
 }
 
-function MakerCard() {
+function FabCard() {
     return (
-        <Example title="maker" className="items-stretch justify-start">
+        <Example title="fab" className="items-stretch justify-start">
             <Card className="w-full">
                 <CardHeader>
                     <CardTitle className="flex items-center gap-2">
@@ -188,7 +188,7 @@ function MakerCard() {
                     </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3">
-                    {makerProjects.map((project) => (
+                    {fabProjects.map((project) => (
                         <a
                             key={project.name}
                             href={project.url}
