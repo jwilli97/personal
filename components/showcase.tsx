@@ -1,219 +1,195 @@
 "use client";
 
 import * as React from "react";
-
+import { motion } from "motion/react";
 import {
-    Example,
-    ExampleWrapper,
-} from "@/components/example";
-import {
-    Card,
-    CardContent,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card";
-import {
-    IconBrandGithub,
-    IconExternalLink,
-    IconBrandSpotify,
-    IconBrandSoundcloud,
-    IconHeadphones,
-    IconTool,
+    IconArrowUpRight,
+    IconCode,
+    IconLock,
 } from "@tabler/icons-react";
+import type { Project } from "@/lib/projects";
+import { getLanguageColor } from "@/lib/language-colors";
 
-const devProjects = [
-    {
-        name: "dpmweb",
-        description: "Digital Paradise Media web platform",
-        language: "TypeScript",
-        url: "https://github.com/jwilli97/dpmweb",
-    },
-    {
-        name: "chi-chi",
-        description: "Project built with Go",
-        language: "Go",
-        url: "https://github.com/jwilli97/chi-chi",
-    },
-    {
-        name: "SnapGPT",
-        description: "Resume builder powered by GPT-3",
-        language: "Python",
-        url: "https://github.com/jwilli97/SnapGPT-hackathon-",
-    },
-    {
-        name: "harvest_scraper",
-        description: "Half Baked Harvest recipe scraper",
-        language: "Python",
-        url: "https://github.com/jwilli97/harvest_scraper",
-    },
-];
+// =============================================================================
+// ANIMATION
+// =============================================================================
 
-const musicProjects = [
-    {
-        name: "Digital Paradise Media",
-        description: "Digital Paradise Media",
-        url: "https://digitalparadisemedia.com",
-        icon: <IconBrandSpotify className="size-4" />,
-    },
-    {
-        name: "Song #2",
-        description: "Song #2",
-        url: "https://song2.digitalparadisemedia.com",
-        icon: <IconBrandSoundcloud className="size-4" />,
-    },
-    {
-        name: "Song #3",
-        description: "Song #3",
-        url: "https://song3.digitalparadisemedia.com",
-        icon: <IconBrandSoundcloud className="size-4" />,
-    },
-];
+const smoothEase = [0.25, 0.1, 0.25, 1] as const;
 
-const fabProjects = [
-    {
-        name: "Example Project",
-        description: "Fusion 360 design / 3D print",
-        url: "#",
-        type: "CAD",
-    },
-    // Add more projects here
-];
-
-const languageColors: Record<string, string> = {
-    "TypeScript": "bg-[#3178c6]",
-    "JavaScript": "bg-[#f1e05a]",
-    "Python": "bg-[#3572A5]",
-    "Go": "bg-[#00ADD8]",
-    "Rust": "bg-[#dea584]",
+const hoverLift = {
+    y: -4,
+    scale: 1.01,
+    transition: { duration: 0.25, ease: "easeOut" as const },
 };
 
-export function Showcase() {
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.08,
+            delayChildren: 0.05,
+        },
+    },
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 24 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.5,
+            ease: smoothEase,
+        },
+    },
+};
+
+// =============================================================================
+// CARDS
+// =============================================================================
+
+function FeaturedCard({ project }: { project: Project }) {
     return (
-        <ExampleWrapper>
-            <DevCard />
-            <MusicCard />
-            <FabCard />
-        </ExampleWrapper>
+        <motion.a
+            href={`/projects/${project.slug}`}
+            variants={itemVariants}
+            whileHover={hoverLift}
+            className="group relative md:col-span-2 row-span-2 border border-primary/20 hover:border-primary/40 bg-primary/[0.02] hover:bg-primary/[0.04] transition-colors duration-300"
+        >
+            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+
+            <div className="h-full min-h-[340px] p-8 flex flex-col justify-between">
+                <div>
+                    <div className="flex items-start justify-between mb-10">
+                        <span className="text-[11px] font-mono text-primary/70 tracking-wider uppercase">
+                            featured
+                        </span>
+                        <IconArrowUpRight className="size-5 text-muted-foreground/40 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
+                    </div>
+
+                    <h3 className="text-3xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+                        {project.name}
+                    </h3>
+                    <p className="text-muted-foreground text-base mb-4">
+                        {project.tagline}
+                    </p>
+                    <p className="text-muted-foreground/60 text-sm max-w-md leading-relaxed line-clamp-3">
+                        {project.description.split("\n\n")[0]}
+                    </p>
+                </div>
+
+                <div className="flex items-center gap-6 mt-8 flex-wrap">
+                    <div className="flex gap-3 flex-wrap">
+                        {project.tech.map((tech) => (
+                            <span
+                                key={tech}
+                                className="text-xs font-mono text-primary/60"
+                            >
+                                {tech}
+                            </span>
+                        ))}
+                    </div>
+                    {project.highlight && (
+                        <span className="text-xs font-mono text-muted-foreground/40">
+                            {project.highlight}
+                        </span>
+                    )}
+                </div>
+            </div>
+        </motion.a>
     );
 }
 
-function DevCard() {
+function ProjectCard({ project }: { project: Project }) {
+    const colors = getLanguageColor(project.language);
+    const isPrivate = project.status === "private" || !project.url;
+
     return (
-        <Example title="dev" className="items-stretch justify-start">
-            <Card className="w-full">
-                <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                        <IconBrandGithub className="size-5" />
-                        <span>projects</span>
-                    </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                    {devProjects.map((project) => (
-                        <a
-                            key={project.name}
-                            href={project.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group block rounded-lg border p-3 transition-colors hover:bg-muted/50"
-                        >
-                            <div className="flex items-start justify-between gap-2">
-                                <h3 className="font-semibold text-sm group-hover:text-primary transition-colors">
-                                    {project.name}
-                                </h3>
-                                <IconExternalLink className="size-4 text-muted-foreground group-hover:text-foreground transition-colors" />
-                            </div>
-                            <p className="text-muted-foreground text-xs mt-1">
-                                {project.description}
-                            </p>
-                            <div className="flex items-center gap-1.5 mt-2 text-xs text-muted-foreground">
-                                <span
-                                    className={`size-2.5 rounded-full ${languageColors[project.language] || "bg-gray-400"}`}
-                                />
-                                <span>{project.language}</span>
-                            </div>
-                        </a>
-                    ))}
-                </CardContent>
-            </Card>
-        </Example>
+        <motion.a
+            href={`/projects/${project.slug}`}
+            variants={itemVariants}
+            whileHover={hoverLift}
+            className={`group relative border border-border/50 ${colors.border} ${colors.bg} transition-colors duration-300`}
+        >
+            <div
+                className="absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style={{ backgroundColor: colors.accent }}
+            />
+
+            <div className="h-full min-h-[160px] p-6 flex flex-col justify-between">
+                <div>
+                    <div className="flex items-start justify-between mb-4">
+                        {isPrivate ? (
+                            <IconLock
+                                className="size-4 opacity-40 group-hover:opacity-100 transition-opacity duration-300"
+                                style={{ color: colors.accent }}
+                            />
+                        ) : (
+                            <IconCode
+                                className="size-4 opacity-40 group-hover:opacity-100 transition-opacity duration-300"
+                                style={{ color: colors.accent }}
+                            />
+                        )}
+                        <IconArrowUpRight className="size-4 text-muted-foreground/20 group-hover:text-foreground/60 transition-colors duration-300" />
+                    </div>
+                    <h4
+                        className="text-base font-medium text-foreground transition-colors duration-300"
+                        style={{ "--lang-color": colors.accent } as React.CSSProperties}
+                    >
+                        <span className="group-hover:text-[var(--lang-color)]">{project.name}</span>
+                    </h4>
+                    <p className="text-sm text-muted-foreground/60 mt-2 line-clamp-2">
+                        {project.tagline}
+                    </p>
+                </div>
+
+                <div className="flex items-center gap-2 mt-4">
+                    {project.language && (
+                        <>
+                            <span
+                                className="size-2 rounded-full transition-transform duration-300 group-hover:scale-125"
+                                style={{ backgroundColor: colors.accent }}
+                            />
+                            <span
+                                className="text-xs font-mono transition-colors duration-300 text-muted-foreground/50 group-hover:text-[var(--lang-color)]"
+                                style={{ "--lang-color": colors.accent } as React.CSSProperties}
+                            >
+                                {project.language}
+                            </span>
+                        </>
+                    )}
+                    {project.highlight && (
+                        <span className="ml-auto text-[10px] font-mono uppercase tracking-wider text-muted-foreground/40">
+                            {project.highlight}
+                        </span>
+                    )}
+                </div>
+            </div>
+        </motion.a>
     );
 }
 
-function MusicCard() {
-    return (
-        <Example title="music" className="items-stretch justify-start">
-            <Card className="w-full">
-                <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                        <IconHeadphones className="size-5" />
-                        <span>projects</span>
-                    </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                    {musicProjects.map((project) => (
-                        <a
-                            key={project.name}
-                            href={project.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group block rounded-lg border p-3 transition-colors hover:bg-muted/50"
-                        >
-                            <div className="flex items-start justify-between gap-2">
-                                <div className="flex items-center gap-2">
-                                    <span className="text-muted-foreground group-hover:text-primary transition-colors">
-                                        {project.icon}
-                                    </span>
-                                    <h3 className="font-semibold text-sm group-hover:text-primary transition-colors">
-                                        {project.name}
-                                    </h3>
-                                </div>
-                                <IconExternalLink className="size-4 text-muted-foreground group-hover:text-foreground transition-colors" />
-                            </div>
-                        </a>
-                    ))}
-                </CardContent>
-            </Card>
-        </Example>
-    );
-}
+// =============================================================================
+// GRID
+// =============================================================================
 
-function FabCard() {
+export function ProjectGrid({ projects }: { projects: Project[] }) {
+    const featured = projects.find((p) => p.tier === 1);
+    const rest = projects.filter((p) => p.slug !== featured?.slug);
+
     return (
-        <Example title="fab" className="items-stretch justify-start">
-            <Card className="w-full">
-                <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                        <IconTool className="size-5" />
-                        <span>builds</span>
-                    </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                    {fabProjects.map((project) => (
-                        <a
-                            key={project.name}
-                            href={project.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group block rounded-lg border p-3 transition-colors hover:bg-muted/50"
-                        >
-                            <div className="flex items-start justify-between gap-2">
-                                <h3 className="font-semibold text-sm group-hover:text-primary transition-colors">
-                                    {project.name}
-                                </h3>
-                                <IconExternalLink className="size-4 text-muted-foreground group-hover:text-foreground transition-colors" />
-                            </div>
-                            <p className="text-muted-foreground text-xs mt-1">
-                                {project.description}
-                            </p>
-                            <div className="flex items-center gap-1.5 mt-2">
-                                <span className="text-xs text-muted-foreground bg-muted px-1.5 py-0.5 rounded">
-                                    {project.type}
-                                </span>
-                            </div>
-                        </a>
-                    ))}
-                </CardContent>
-            </Card>
-        </Example>
+        <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+        >
+            {featured && <FeaturedCard project={featured} />}
+            {rest.map((p) => (
+                <ProjectCard key={p.slug} project={p} />
+            ))}
+        </motion.div>
     );
 }

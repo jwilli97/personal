@@ -63,15 +63,21 @@ function ContributionCell({
     tooltipPosition = "right-0";
   }
 
+  const label = `${count} contribution${count !== 1 ? "s" : ""} on ${formattedDate}`;
+
   return (
     <div
       className="relative"
       onMouseEnter={() => setShowTooltip(true)}
       onMouseLeave={() => setShowTooltip(false)}
+      onFocus={() => setShowTooltip(true)}
+      onBlur={() => setShowTooltip(false)}
     >
-      <div
+      <button
+        type="button"
+        aria-label={label}
         className={cn(
-          "size-[10px] sm:size-[11px] rounded-[2px]",
+          "block size-[10px] sm:size-[11px] rounded-[2px] focus-visible:outline focus-visible:outline-1 focus-visible:outline-primary",
           levelColors[level]
         )}
       />
@@ -104,12 +110,22 @@ function ContributionGridSkeleton() {
   );
 }
 
-export function ContributionGridMinimal() {
-  const [data, setData] = React.useState<ContributionData | null>(null);
+export function ContributionGridMinimal({
+  initialData,
+}: {
+  initialData?: ContributionData;
+}) {
+  const [data, setData] = React.useState<ContributionData | null>(
+    initialData ?? null,
+  );
   const [error, setError] = React.useState<string | null>(null);
-  const [loading, setLoading] = React.useState(true);
+  const [loading, setLoading] = React.useState(!initialData);
 
   React.useEffect(() => {
+    if (initialData) {
+      return;
+    }
+
     async function fetchData() {
       try {
         const response = await fetch("/api/contributions");
@@ -127,7 +143,7 @@ export function ContributionGridMinimal() {
     }
 
     fetchData();
-  }, []);
+  }, [initialData]);
 
   if (loading) {
     return <ContributionGridSkeleton />;
@@ -140,7 +156,11 @@ export function ContributionGridMinimal() {
   const weeks = buildContributionWeeks(data.contributions);
 
   return (
-    <div className="flex justify-center py-8">
+    <div
+      className="flex justify-center py-8"
+      role="group"
+      aria-label={`GitHub contribution calendar aggregated from ${data.usernames.join(", ")}`}
+    >
       <div className="flex gap-[3px]">
         {weeks.map((week, weekIndex) => (
           <div key={weekIndex} className="flex flex-col gap-[3px]">

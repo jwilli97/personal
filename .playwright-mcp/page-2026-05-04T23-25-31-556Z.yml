@@ -1,0 +1,40 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - navigation [ref=e3]:
+      - generic [ref=e4]:
+        - link "jwilli.dev" [ref=e5] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e6]:
+          - link "projects" [ref=e7] [cursor=pointer]:
+            - /url: /projects
+          - link "fab" [ref=e8] [cursor=pointer]:
+            - /url: /fab
+          - link "music" [ref=e9] [cursor=pointer]:
+            - /url: /music
+    - main [ref=e10]:
+      - generic [ref=e11]:
+        - heading "fab" [level=1] [ref=e12]
+        - paragraph [ref=e13]: fusion 360 designs + bambu prints.
+      - generic [ref=e14]:
+        - generic [ref=e15]: $ ls ./fab
+        - generic [ref=e16]: no such file or directory yet.
+        - generic [ref=e17]: — ~30 designs and prints inbound. back at the shop next week.
+  - contentinfo [ref=e18]:
+    - generic [ref=e19]:
+      - generic [ref=e20]:
+        - generic [ref=e21]: © 2026 Joseph Williams
+        - link "jwilli.dev" [ref=e22] [cursor=pointer]:
+          - /url: /
+      - generic [ref=e23]:
+        - link "github" [ref=e24] [cursor=pointer]:
+          - /url: https://github.com/jwilli97
+          - img [ref=e25]
+        - link "linkedin" [ref=e27] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/jwilli97
+          - img [ref=e28]
+        - link "email" [ref=e31] [cursor=pointer]:
+          - /url: mailto:hi@jwilli.dev
+          - img [ref=e32]
+  - button "Open Next.js Dev Tools" [ref=e40] [cursor=pointer]:
+    - img [ref=e41]
+  - alert [ref=e44]

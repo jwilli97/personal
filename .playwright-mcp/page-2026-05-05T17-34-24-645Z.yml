@@ -1,0 +1,84 @@
+- generic [active] [ref=e1]:
+  - main [ref=e3]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - generic [ref=e7]:
+          - heading "jwilli.dev" [level=1] [ref=e8]
+          - paragraph [ref=e9]: joseph williams
+        - paragraph [ref=e10]: i'm a software engineer and musician based in austin.
+        - generic [ref=e11]:
+          - generic [ref=e12]: $ now
+          - generic [ref=e13]: "> shipping austin stem center"
+          - generic [ref=e14]: "> building cincin"
+          - generic [ref=e15]: "> on vacation"
+        - navigation "featured projects" [ref=e16]:
+          - link "cincin" [ref=e17] [cursor=pointer]:
+            - /url: /projects/cincin
+            - img [ref=e18]
+            - text: cincin
+          - link "austin stem center" [ref=e21] [cursor=pointer]:
+            - /url: /projects/austin-stem-center
+            - img [ref=e22]
+            - text: austin stem center
+          - link "all projects" [ref=e25] [cursor=pointer]:
+            - /url: /projects
+            - img [ref=e26]
+            - text: all projects
+        - generic [ref=e29]:
+          - link "github" [ref=e30] [cursor=pointer]:
+            - /url: https://github.com/jwilli97
+            - img [ref=e31]
+          - link "linkedin" [ref=e33] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/jwilli97
+            - img [ref=e34]
+          - link "twitter" [ref=e37] [cursor=pointer]:
+            - /url: https://twitter.com/jwilli97
+            - img [ref=e38]
+          - link "email" [ref=e40] [cursor=pointer]:
+            - /url: mailto:hi@jwilli.dev
+            - img [ref=e41]
+      - img "terminal timezone dashboard" [ref=e46]:
+        - generic [ref=e47]: Tuesday, May 5
+        - generic [ref=e48]:
+          - generic [ref=e49]:
+            - generic [ref=e50]: HAWAII
+            - generic [ref=e51]: 04:32
+            - generic [ref=e52]: "###-----------"
+            - generic [ref=e53]: ☀️
+            - generic [ref=e54]: 82°F/28°C
+          - generic [ref=e55]:
+            - generic [ref=e56]: CENTRAL
+            - generic [ref=e57]: 09:32
+            - generic [ref=e58]: "######--------"
+            - generic [ref=e59]: ☀️
+            - generic [ref=e60]: 79°F/26°C
+          - generic [ref=e61]:
+            - generic [ref=e62]: EASTERN
+            - generic [ref=e63]: 10:32
+            - generic [ref=e64]: "######--------"
+            - generic [ref=e65]: 🌦️
+            - generic [ref=e66]: 61°F/16°C
+          - generic [ref=e67]:
+            - generic [ref=e68]: UTC
+            - generic [ref=e69]: 14:32
+            - generic [ref=e70]: "########------"
+            - generic [ref=e71]: ☁️
+            - generic [ref=e72]: 55°F/13°C
+  - contentinfo [ref=e499]:
+    - generic [ref=e500]:
+      - generic [ref=e501]:
+        - generic [ref=e502]: © 2026 Joseph Williams
+        - link "jwilli.dev" [ref=e503] [cursor=pointer]:
+          - /url: /
+      - generic [ref=e504]:
+        - link "github" [ref=e505] [cursor=pointer]:
+          - /url: https://github.com/jwilli97
+          - img [ref=e506]
+        - link "linkedin" [ref=e508] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/jwilli97
+          - img [ref=e509]
+        - link "email" [ref=e512] [cursor=pointer]:
+          - /url: mailto:hi@jwilli.dev
+          - img [ref=e513]
+  - button "Open Next.js Dev Tools" [ref=e521] [cursor=pointer]:
+    - img [ref=e522]

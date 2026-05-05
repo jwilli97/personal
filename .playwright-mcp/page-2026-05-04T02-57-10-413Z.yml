@@ -1,0 +1,93 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - heading "jwilli.dev" [level=1] [ref=e5]
+        - paragraph [ref=e6]: i'm a software engineer and musician.
+        - generic [ref=e7]:
+          - img [ref=e8]
+          - img [ref=e10]
+          - img [ref=e13]
+          - img [ref=e15]
+      - generic [ref=e446]:
+        - generic [ref=e447]: "|"
+        - generic [ref=e448]: "|"
+        - generic [ref=e449]: ▼
+    - generic [ref=e451]:
+      - generic [ref=e452]:
+        - generic [ref=e453]: dev
+        - generic [ref=e455]:
+          - generic [ref=e457]:
+            - img [ref=e458]
+            - generic [ref=e460]: projects
+          - generic [ref=e461]:
+            - link "dpmweb Digital Paradise Media web platform TypeScript" [ref=e462] [cursor=pointer]:
+              - /url: https://github.com/jwilli97/dpmweb
+              - generic [ref=e463]:
+                - heading "dpmweb" [level=3] [ref=e464]
+                - img [ref=e465]
+              - paragraph [ref=e469]: Digital Paradise Media web platform
+              - generic [ref=e472]: TypeScript
+            - link "chi-chi Project built with Go Go" [ref=e473] [cursor=pointer]:
+              - /url: https://github.com/jwilli97/chi-chi
+              - generic [ref=e474]:
+                - heading "chi-chi" [level=3] [ref=e475]
+                - img [ref=e476]
+              - paragraph [ref=e480]: Project built with Go
+              - generic [ref=e483]: Go
+            - link "SnapGPT Resume builder powered by GPT-3 Python" [ref=e484] [cursor=pointer]:
+              - /url: https://github.com/jwilli97/SnapGPT-hackathon-
+              - generic [ref=e485]:
+                - heading "SnapGPT" [level=3] [ref=e486]
+                - img [ref=e487]
+              - paragraph [ref=e491]: Resume builder powered by GPT-3
+              - generic [ref=e494]: Python
+            - link "harvest_scraper Half Baked Harvest recipe scraper Python" [ref=e495] [cursor=pointer]:
+              - /url: https://github.com/jwilli97/harvest_scraper
+              - generic [ref=e496]:
+                - heading "harvest_scraper" [level=3] [ref=e497]
+                - img [ref=e498]
+              - paragraph [ref=e502]: Half Baked Harvest recipe scraper
+              - generic [ref=e505]: Python
+      - generic [ref=e506]:
+        - generic [ref=e507]: music
+        - generic [ref=e509]:
+          - generic [ref=e511]:
+            - img [ref=e512]
+            - generic [ref=e516]: projects
+          - generic [ref=e517]:
+            - link "Digital Paradise Media" [ref=e518] [cursor=pointer]:
+              - /url: https://digitalparadisemedia.com
+              - generic [ref=e519]:
+                - generic [ref=e520]:
+                  - img [ref=e522]
+                  - heading "Digital Paradise Media" [level=3] [ref=e527]
+                - img [ref=e528]
+            - 'link "Song #2" [ref=e532] [cursor=pointer]':
+              - /url: https://song2.digitalparadisemedia.com
+              - generic [ref=e533]:
+                - generic [ref=e534]:
+                  - img [ref=e536]
+                  - 'heading "Song #2" [level=3] [ref=e538]'
+                - img [ref=e539]
+            - 'link "Song #3" [ref=e543] [cursor=pointer]':
+              - /url: https://song3.digitalparadisemedia.com
+              - generic [ref=e544]:
+                - generic [ref=e545]:
+                  - img [ref=e547]
+                  - 'heading "Song #3" [level=3] [ref=e549]'
+                - img [ref=e550]
+      - generic [ref=e554]:
+        - generic [ref=e555]: fab
+        - generic [ref=e557]:
+          - generic [ref=e559]:
+            - img [ref=e560]
+            - generic [ref=e562]: builds
+          - link "Example Project Fusion 360 design / 3D print CAD" [ref=e564] [cursor=pointer]:
+            - /url: "#"
+            - generic [ref=e565]:
+              - heading "Example Project" [level=3] [ref=e566]
+              - img [ref=e567]
+            - paragraph [ref=e571]: Fusion 360 design / 3D print
+            - generic [ref=e573]: CAD
+  - alert [ref=e574]

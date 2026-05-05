@@ -1,0 +1,104 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - navigation [ref=e3]:
+      - generic [ref=e4]:
+        - link "jwilli.dev" [ref=e5] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e6]:
+          - link "projects" [ref=e7] [cursor=pointer]:
+            - /url: /projects
+          - link "fab" [ref=e8] [cursor=pointer]:
+            - /url: /fab
+          - link "music" [ref=e9] [cursor=pointer]:
+            - /url: /music
+    - main [ref=e10]:
+      - generic [ref=e11]:
+        - heading "projects" [level=1] [ref=e12]
+        - paragraph [ref=e13]: 4 things, more in the oven.
+      - generic [ref=e14]:
+        - generic [ref=e15]:
+          - generic [ref=e16]: dev
+          - generic [ref=e17]: "04"
+        - generic [ref=e19]:
+          - link "featured cincin restaurant reservations, automated. cincin is the project i'm pouring most of my time into right now. it's an intelligent reservation bot for restaurants — handles availability, confirms bookings, talks to guests in plain language. the goal is to take the most annoying part of running a small restaurant and make it disappear. TypeScript Next.js AI currently building" [ref=e20] [cursor=pointer]:
+            - /url: /projects/cincin
+            - generic [ref=e22]:
+              - generic [ref=e23]:
+                - generic [ref=e24]:
+                  - generic [ref=e25]: featured
+                  - img [ref=e26]
+                - heading "cincin" [level=3] [ref=e29]
+                - paragraph [ref=e30]: restaurant reservations, automated.
+                - paragraph [ref=e31]: cincin is the project i'm pouring most of my time into right now. it's an intelligent reservation bot for restaurants — handles availability, confirms bookings, talks to guests in plain language. the goal is to take the most annoying part of running a small restaurant and make it disappear.
+              - generic [ref=e32]:
+                - generic [ref=e33]:
+                  - generic [ref=e34]: TypeScript
+                  - generic [ref=e35]: Next.js
+                  - generic [ref=e36]: AI
+                - generic [ref=e37]: currently building
+          - link "austin stem center nonprofit innovation hub for hands-on stem in austin. TypeScript ships june 1, 2026" [ref=e38] [cursor=pointer]:
+            - /url: /projects/austin-stem-center
+            - generic [ref=e40]:
+              - generic [ref=e41]:
+                - generic [ref=e42]:
+                  - img [ref=e43]
+                  - img [ref=e47]
+                - heading "austin stem center" [level=4] [ref=e50]
+                - paragraph [ref=e51]: nonprofit innovation hub for hands-on stem in austin.
+              - generic [ref=e52]:
+                - generic [ref=e54]: TypeScript
+                - generic [ref=e55]: ships june 1, 2026
+          - link "tz-clock a terminal timezone dashboard with weather. Python" [ref=e56] [cursor=pointer]:
+            - /url: /projects/tz-clock
+            - generic [ref=e58]:
+              - generic [ref=e59]:
+                - generic [ref=e60]:
+                  - img [ref=e61]
+                  - img [ref=e65]
+                - heading "tz-clock" [level=4] [ref=e68]
+                - paragraph [ref=e69]: a terminal timezone dashboard with weather.
+              - generic [ref=e72]: Python
+          - link "tinytrees atx small storefront for a local austin shop. TypeScript" [ref=e73] [cursor=pointer]:
+            - /url: /projects/tinytrees-atx
+            - generic [ref=e75]:
+              - generic [ref=e76]:
+                - generic [ref=e77]:
+                  - img [ref=e78]
+                  - img [ref=e82]
+                - heading "tinytrees atx" [level=4] [ref=e85]
+                - paragraph [ref=e86]: small storefront for a local austin shop.
+              - generic [ref=e89]: TypeScript
+      - generic [ref=e90]:
+        - generic [ref=e91]:
+          - generic [ref=e92]: fab
+          - generic [ref=e93]: "00"
+        - generic [ref=e95]:
+          - generic [ref=e96]: $ ls ./fab
+          - generic [ref=e97]: no such file or directory yet.
+          - generic [ref=e98]: — back at the shop next week. fusion 360 + bambu prints incoming.
+      - generic [ref=e99]:
+        - generic [ref=e100]:
+          - generic [ref=e101]: music
+          - generic [ref=e102]: "00"
+        - generic [ref=e104]:
+          - generic [ref=e105]: $ ls ./music
+          - generic [ref=e106]: no such file or directory yet.
+          - generic [ref=e107]: — uploads pending. ~10 tracks queued.
+  - contentinfo [ref=e108]:
+    - generic [ref=e109]:
+      - generic [ref=e110]:
+        - generic [ref=e111]: © 2026 Joseph Williams
+        - link "jwilli.dev" [ref=e112] [cursor=pointer]:
+          - /url: /
+      - generic [ref=e113]:
+        - link "github" [ref=e114] [cursor=pointer]:
+          - /url: https://github.com/jwilli97
+          - img [ref=e115]
+        - link "linkedin" [ref=e117] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/jwilli97
+          - img [ref=e118]
+        - link "email" [ref=e121] [cursor=pointer]:
+          - /url: mailto:hi@jwilli.dev
+          - img [ref=e122]
+  - button "Open Next.js Dev Tools" [ref=e130] [cursor=pointer]:
+    - img [ref=e131]

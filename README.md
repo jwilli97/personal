@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# jwilli.dev
 
-## Getting Started
+Personal site of [Joseph Williams](https://jwilli.dev) — software engineer and musician based in Austin.
 
-First, run the development server:
+Built with Next.js 16, Tailwind v4, shadcn/ui, and the `motion` library. Hosted on Vercel.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Stack
+
+- **Framework:** Next.js 16 (App Router) + React 19
+- **Styling:** Tailwind v4, OKLch color space, dark-only
+- **Type system:** strict TypeScript
+- **Motion:** `motion` v12 (Framer's newer package — not `framer-motion`)
+- **Icons:** `@tabler/icons-react`
+- **Analytics:** Vercel Analytics
+- **Package manager:** Bun
+
+## Develop
+
+```sh
+bun install
+bun run dev   # http://localhost:3000
+bun run lint
+bun run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Site map
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `/` — home (composition C: hero + tz-clock frame + contribution grid)
+- `/projects` — index of all visible projects
+- `/projects/[slug]` — case study per project
+- `/fab` — Fusion 360 + Bambu prints (placeholder; populated phase 2)
+- `/music` — tracks (placeholder; populated phase 3)
+- `/api/contributions` — multi-account GitHub contribution feed
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Content
 
-## Learn More
+To update what the site says:
 
-To learn more about Next.js, take a look at the following resources:
+- **Project list:** edit [`lib/projects.ts`](./lib/projects.ts). Adding a project there automatically gives it a card on `/projects` and a case study at `/projects/[slug]`.
+- **"$ now" block on the home page:** edit [`lib/now.ts`](./lib/now.ts).
+- **Language colors:** edit [`lib/language-colors.ts`](./lib/language-colors.ts).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Environment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The contribution grid aggregates four GitHub accounts via the GraphQL API. Each account needs a personal access token with at least `read:user` scope (`repo` scope for private contributions). Set these in Vercel and `.env.local`:
 
-## Deploy on Vercel
+| Env var | Account | Notes |
+|---|---|---|
+| `JWILLI_GITHUB_TOKEN` | `jwilli97` | personal |
+| `ASC_GITHUB_TOKEN` | `jwilli-asc` | austin stem center |
+| `LEBOWSKI_GITHUB_TOKEN` | `Lebowski97` | client work |
+| `CINCIN_GITHUB_TOKEN` | `jcincin` | cincin org |
+| `GITHUB_TOKEN` | _shared fallback_ | used if none of the above resolve |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Token resolution lives in [`lib/github-contributions.mjs`](./lib/github-contributions.mjs).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deploy
+
+Push to `main`. Vercel auto-deploys. Make sure all four tokens are set in **Project Settings → Environment Variables** for both _Preview_ and _Production_ — otherwise the contribution grid silently under-counts.
+
+## License
+
+Code: MIT. Content: © Joseph Williams.

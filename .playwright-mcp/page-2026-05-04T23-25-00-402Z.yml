@@ -1,0 +1,77 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - navigation [ref=e3]:
+      - generic [ref=e4]:
+        - link "jwilli.dev" [ref=e5] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e6]:
+          - link "projects" [ref=e7] [cursor=pointer]:
+            - /url: /projects
+          - link "fab" [ref=e8] [cursor=pointer]:
+            - /url: /fab
+          - link "music" [ref=e9] [cursor=pointer]:
+            - /url: /music
+    - main [ref=e10]:
+      - link "all projects" [ref=e11] [cursor=pointer]:
+        - /url: /projects
+        - img [ref=e12]
+        - text: all projects
+      - generic [ref=e15]:
+        - generic [ref=e16]:
+          - generic [ref=e18]: dev
+          - generic [ref=e19]: /
+          - generic [ref=e20]: in development
+          - generic [ref=e21]: /
+          - generic [ref=e22]: ships june 1, 2026
+        - heading "austin stem center" [level=1] [ref=e23]
+        - paragraph [ref=e24]: nonprofit innovation hub for hands-on stem in austin.
+      - article [ref=e25]:
+        - paragraph [ref=e26]: "i built the marketing + program site for the austin stem center, a nonprofit opening june 2026. ten pages: home, about, programs (field trips, summer camps, pre-apprenticeship, professional development), facilities, blog, and contact."
+        - paragraph [ref=e27]: most of the work was about making complex program info legible to four different audiences (parents, schools, donors, professionals) without the page feeling like a brochure. all of it is open source.
+      - generic [ref=e28]:
+        - generic [ref=e30]: stack
+        - generic [ref=e32]:
+          - generic [ref=e33]: TypeScript
+          - generic [ref=e34]: Next.js
+          - generic [ref=e35]: Tailwind
+      - generic [ref=e36]:
+        - link "live site" [ref=e37] [cursor=pointer]:
+          - /url: https://atxstem.org
+          - img [ref=e38]
+          - text: live site
+        - link "repo" [ref=e42] [cursor=pointer]:
+          - /url: https://github.com/jwilli-asc/asc_web
+          - img [ref=e43]
+          - text: repo
+      - navigation "other projects" [ref=e45]:
+        - link "prev cincin" [ref=e46] [cursor=pointer]:
+          - /url: /projects/cincin
+          - generic [ref=e47]:
+            - img [ref=e48]
+            - text: prev
+          - generic [ref=e51]: cincin
+        - link "next tz-clock" [ref=e52] [cursor=pointer]:
+          - /url: /projects/tz-clock
+          - generic [ref=e53]:
+            - text: next
+            - img [ref=e54]
+          - generic [ref=e57]: tz-clock
+  - contentinfo [ref=e58]:
+    - generic [ref=e59]:
+      - generic [ref=e60]:
+        - generic [ref=e61]: © 2026 Joseph Williams
+        - link "jwilli.dev" [ref=e62] [cursor=pointer]:
+          - /url: /
+      - generic [ref=e63]:
+        - link "github" [ref=e64] [cursor=pointer]:
+          - /url: https://github.com/jwilli97
+          - img [ref=e65]
+        - link "linkedin" [ref=e67] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/jwilli97
+          - img [ref=e68]
+        - link "email" [ref=e71] [cursor=pointer]:
+          - /url: mailto:hi@jwilli.dev
+          - img [ref=e72]
+  - button "Open Next.js Dev Tools" [ref=e80] [cursor=pointer]:
+    - img [ref=e81]
+  - alert [ref=e84]
