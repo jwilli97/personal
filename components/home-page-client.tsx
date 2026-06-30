@@ -3,16 +3,13 @@
 import Link from "next/link";
 import { motion } from "motion/react";
 import {
-  IconArrowRight,
   IconBrandGithub,
   IconBrandLinkedin,
   IconBrandTwitter,
   IconMail,
 } from "@tabler/icons-react";
 import { ContributionGridMinimal } from "@/components/contribution-grid-minimal";
-import { TzClockFrame } from "@/components/tz-clock-frame";
-import type { Project } from "@/lib/projects";
-import type { WeatherReading } from "@/lib/weather";
+import { Button } from "@/components/ui/button";
 
 type ContributionDay = {
   date: string;
@@ -55,21 +52,17 @@ const iconHover = {
 };
 
 export function HomePageClient({
-  featured,
   now,
   contributionData,
-  weather,
 }: {
-  featured: Project[];
   now: string[];
   contributionData: ContributionData;
-  weather: WeatherReading[];
 }) {
   return (
-    <main className="min-h-screen flex items-center px-4 sm:px-8 py-16">
-      <div className="max-w-6xl mx-auto w-full">
+    <main className="min-h-screen flex items-center justify-center px-4 sm:px-8 py-16">
+      <div className="w-full flex justify-center">
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-start"
+          className="flex flex-col md:flex-row md:items-center gap-12 md:gap-14 lg:gap-16"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -101,30 +94,6 @@ export function HomePageClient({
                 </div>
               ))}
             </motion.div>
-
-            <motion.nav
-              variants={itemVariants}
-              className="flex flex-col gap-2 font-mono text-sm"
-              aria-label="featured projects"
-            >
-              {featured.map((p) => (
-                <Link
-                  key={p.slug}
-                  href={`/projects/${p.slug}`}
-                  className="group flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors w-fit"
-                >
-                  <IconArrowRight className="size-4 text-primary/40 group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
-                  {p.name}
-                </Link>
-              ))}
-              <Link
-                href="/projects"
-                className="group flex items-center gap-2 text-muted-foreground/60 hover:text-foreground transition-colors w-fit"
-              >
-                <IconArrowRight className="size-4 text-muted-foreground/30 group-hover:text-foreground group-hover:translate-x-0.5 transition-all" />
-                all projects
-              </Link>
-            </motion.nav>
 
             <motion.div
               variants={itemVariants}
@@ -171,14 +140,24 @@ export function HomePageClient({
             </motion.div>
           </div>
 
-          <div className="flex flex-col gap-8 items-start md:items-end">
-            <motion.div variants={itemVariants} className="w-full overflow-x-auto">
-              <TzClockFrame initialWeather={weather} />
-            </motion.div>
+          <div className="flex flex-col items-start md:items-end">
+            <div className="flex flex-col gap-4 w-full md:w-fit">
+              <motion.div variants={itemVariants} className="w-full">
+                <ContributionGridMinimal initialData={contributionData} />
+              </motion.div>
 
-            <motion.div variants={itemVariants} className="w-full">
-              <ContributionGridMinimal initialData={contributionData} />
-            </motion.div>
+              <motion.div
+                variants={itemVariants}
+                className="w-full flex gap-3 font-mono"
+              >
+                <Button asChild variant="outline" size="lg" className="flex-1">
+                  <Link href="/projects">projects</Link>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="flex-1">
+                  <Link href="/music">music</Link>
+                </Button>
+              </motion.div>
+            </div>
           </div>
         </motion.div>
       </div>

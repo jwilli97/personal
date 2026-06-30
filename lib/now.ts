@@ -4,7 +4,7 @@
 // Three lines is the sweet spot. More than five and the column gets crowded.
 
 export const now: string[] = [
-  "shipping austin stem center",
-  "building cincin",
-  "on vacation",
+  "austin stem center",
+  "cincin",
+  "digiboard",
 ];

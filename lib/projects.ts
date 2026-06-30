@@ -77,6 +77,21 @@ most of the work was about making complex program info legible to four different
   // TIER 2
   // -------------------------------------------------------------------------
   {
+    slug: "digiboard",
+    name: "digiboard",
+    tagline: "a vestaboard, rebuilt for the browser.",
+    description: `a browser version of a vestaboard — those mechanical split-flap displays from train stations and design-y lobbies. type a message and watch it flutter into place one character at a time, with the mechanical clatter if you leave the sound on.
+
+compose with color chips, swap between board sizes, and control alignment down to the block. message history and your theme persist locally. a real vestaboard runs about three grand; this one's free and lives in a tab.`,
+    tech: ["TypeScript", "Next.js", "Tailwind"],
+    language: "TypeScript",
+    url: "https://digiboard-taupe.vercel.app",
+    repoUrl: "https://github.com/jwilli97/DigiBoard",
+    status: "shipped",
+    tier: 2,
+    category: "dev",
+  },
+  {
     slug: "tz-clock",
     name: "tz-clock",
     tagline: "a terminal timezone dashboard with weather.",
